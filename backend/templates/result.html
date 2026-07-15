@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scholarship Results</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>🎓 Recommended Scholarships</h1>
+</header>
+
+<main>
+
+    <h2>Hello {{ student.name }} 👋</h2>
+
+    <p>Based on your details, these scholarships match your profile:</p>
+
+
+    <div class="cards">
+
+    {% if scholarships %}
+
+        {% for scholarship in scholarships %}
+
+        <div class="card">
+
+            <h2>{{ scholarship["Scholarship_Name"] }}</h2>
+
+            <p><b>Amount:</b> ₹{{ scholarship["Amount"] }}</p>
+
+            <p><b>Category:</b> {{ scholarship["Category"] }}</p>
+
+            <p><b>Course:</b> {{ scholarship["Course"] }}</p>
+
+            <p><b>State:</b> {{ scholarship["State"] }}</p>
+
+            <p><b>Minimum Percentage:</b> {{ scholarship["Minimum_Percentage"] }}%</p>
+            <p><b>AI Match Score:</b> {{ scholarship["Match_Score"] }}%</p>
+            <br>
+
+<a href="{{ scholarship['Apply_Link'] }}" target="_blank">
+    <button>Apply Now</button>
+</a>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <h3>No scholarships found for your details.</h3>
+
+    {% endif %}
+
+    </div>
+
+</main>
+
+
+<footer>
+    <p>© 2026 Auto Scholar AI Agent</p>
+</footer>
+
+</body>
+</html>

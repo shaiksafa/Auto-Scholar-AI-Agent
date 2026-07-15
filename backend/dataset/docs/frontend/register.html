@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>🎓 Auto Scholar – AI Agent</h1>
+</header>
+
+<main>
+    <h2>Student Registration</h2>
+
+    <form>
+
+        <label>Full Name</label><br>
+        <input type="text" placeholder="Enter your full name"><br><br>
+
+        <label>Email</label><br>
+        <input type="email" placeholder="Enter your email"><br><br>
+
+        <label>Phone Number</label><br>
+        <input type="tel" placeholder="Enter your phone number"><br><br>
+
+        <label>Gender</label><br>
+        <select>
+            <option>Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select><br><br>
+
+        <label>State</label><br>
+        <input type="text" placeholder="Enter your state"><br><br>
+
+        <label>College Name</label><br>
+        <input type="text" placeholder="Enter your college name"><br><br>
+
+        <label>Course</label><br>
+        <input type="text" placeholder="Enter your course"><br><br>
+
+        <label>Percentage / CGPA</label><br>
+        <input type="number" placeholder="Enter your percentage"><br><br>
+
+        <label>Family Income (₹)</label><br>
+        <input type="number" placeholder="Enter annual family income"><br><br>
+
+        <label>Category</label><br>
+        <select>
+            <option>Select Category</option>
+            <option>General</option>
+            <option>OBC</option>
+            <option>SC</option>
+            <option>ST</option>
+            <option>EWS</option>
+        </select><br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</main>
+
+<footer>
+    <p>© 2026 Auto Scholar AI Agent</p>
+</footer>
+
+</body>
+</html>

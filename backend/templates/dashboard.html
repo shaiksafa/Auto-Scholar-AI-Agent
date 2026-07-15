@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🎓 Auto Scholar Dashboard</h1>
+
+</header>
+
+<main>
+
+<h2>Registered Students</h2>
+
+{% if students %}
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>College</th>
+<th>Course</th>
+<th>Percentage</th>
+<th>Category</th>
+
+</tr>
+
+{% for student in students %}
+
+<tr>
+
+<td>{{ student["Name"] }}</td>
+<td>{{ student["Email"] }}</td>
+<td>{{ student["Phone"] }}</td>
+<td>{{ student["College"] }}</td>
+<td>{{ student["Course"] }}</td>
+<td>{{ student["Percentage"] }}</td>
+<td>{{ student["Category"] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<h3>No students registered yet.</h3>
+
+{% endif %}
+
+</main>
+
+</body>
+
+</html>
