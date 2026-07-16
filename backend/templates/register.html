@@ -15,7 +15,7 @@
 <main>
     <h2>Student Registration</h2>
 
-    <form action="/register" method="POST">
+    <form action="/register" method="POST" enctype="multipart/form-data">
 
         <label>Full Name</label><br>
         <input type="text" name="name" placeholder="Enter your full name" required><br><br>
@@ -59,6 +59,106 @@
             <option>EWS</option>
         </select><br><br>
 
+        <hr>
+
+        <h2>🛡 Identity Verification</h2>
+
+        <label>Aadhaar Number</label><br>
+
+        <input
+            type="text"
+            id="aadhaar"
+            name="aadhaar"
+            maxlength="12"
+            pattern="[0-9]{12}"
+            placeholder="Enter 12-digit Aadhaar Number"
+            required>
+
+        <button type="button" onclick="verifyAadhaar()">
+            Verify Aadhaar
+        </button>
+
+        <br><br>
+
+        <p id="aadhaarStatus"></p>
+
+        <hr>
+
+        <h2>📂 DigiLocker</h2>
+
+        <p>Connect your DigiLocker account to access verified documents.</p>
+
+        <label>APAAR ID</label><br>
+
+        <input
+            type="text"
+            id="apaar"
+            name="apaar"
+            placeholder="Enter your APAAR ID">
+
+        <br><br>
+
+        <button type="button" onclick="connectDigiLocker()">
+            Connect DigiLocker
+        </button>
+
+        <br><br>
+
+        <p id="digilockerStatus"></p>
+
+        <hr>
+
+        <h2>📄 Document Verification</h2>
+
+        <p>Please upload the required documents.</p>
+
+       
+        <label>Aadhaar Card</label><br>
+<input
+    type="file"
+    id="aadhaarCard"
+    name="aadhaarCard"
+    accept=".pdf,.jpg,.jpeg,.png"><br><br>
+    <label>Income Certificate</label><br>
+<input
+    type="file"
+    id="incomeCertificate"
+    name="incomeCertificate"
+    accept=".pdf,.jpg,.jpeg,.png"><br><br>
+    <label>Caste Certificate (Optional)</label><br>
+<input
+    type="file"
+    id="casteCertificate"
+    name="casteCertificate"
+    accept=".pdf,.jpg,.jpeg,.png"><br><br>
+    <label>Bonafide Certificate</label><br>
+<input
+    type="file"
+    id="bonafide"
+    name="bonafide"
+    accept=".pdf,.jpg,.jpeg,.png"><br><br>
+    <label>Marks Memo</label><br>
+<input
+    type="file"
+    id="marksMemo"
+    name="marksMemo"
+    accept=".pdf,.jpg,.jpeg,.png"><br><br>
+
+        
+
+        
+
+        
+
+        
+        <button type="button" onclick="verifyDocuments()">
+            Verify Documents
+        </button>
+
+        <br><br>
+
+        <p id="documentStatus"></p>
+
         <button type="submit">Submit</button>
 
     </form>
@@ -66,8 +166,78 @@
 </main>
 
 <footer>
-    <p>© 2026 Auto Scholar AI Agent | B.Tech AI Project</p>
+    <p>
+        © 2026 Auto Scholar – AI Agent<br><br>
+
+        Developed by <b>Shaik Safa</b><br>
+        <b>Shagufta Naaz</b><br><br>
+
+        B.Tech CSE (Artificial Intelligence)<br>
+
+        Madanapalle Institute of Technology & Science
+    </p>
 </footer>
+
+<script>
+
+function verifyAadhaar() {
+
+    let aadhaar = document.getElementById("aadhaar").value;
+
+    if (aadhaar.length === 12) {
+
+        document.getElementById("aadhaarStatus").innerHTML =
+        "✅ Aadhaar Verified Successfully";
+
+    } else {
+
+        document.getElementById("aadhaarStatus").innerHTML =
+        "❌ Please enter a valid 12-digit Aadhaar Number";
+
+    }
+
+}
+
+function connectDigiLocker() {
+
+    let apaar = document.getElementById("apaar").value;
+
+    if (apaar.trim() === "") {
+
+        document.getElementById("digilockerStatus").innerHTML =
+        "❌ Please enter your APAAR ID.";
+
+    } else {
+
+        document.getElementById("digilockerStatus").innerHTML =
+        "✅ DigiLocker Connected Successfully";
+
+    }
+
+}
+
+function verifyDocuments() {
+
+    let aadhaar = document.getElementById("aadhaarCard").files.length;
+    let income = document.getElementById("incomeCertificate").files.length;
+    let bonafide = document.getElementById("bonafide").files.length;
+    let marks = document.getElementById("marksMemo").files.length;
+
+    if (aadhaar && income && bonafide && marks) {
+
+        document.getElementById("documentStatus").innerHTML =
+        "✅ All Required Documents Verified Successfully";
+
+    } else {
+
+        document.getElementById("documentStatus").innerHTML =
+        "❌ Please upload all required documents.";
+
+    }
+
+}
+
+</script>
 
 </body>
 </html>

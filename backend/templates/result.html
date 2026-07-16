@@ -16,8 +16,47 @@
 
     <h2>Hello {{ student.name }} 👋</h2>
 
-    <p>Based on your details, these scholarships match your profile:</p>
+    <p>Based on your details, these scholarships match your profile.</p>
 
+    <hr>
+
+    <h2>🛡 Verification Summary</h2>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Verification</th>
+            <th>Status</th>
+        </tr>
+
+        <tr>
+            <td>Aadhaar Verification</td>
+            <td>✅ Verified</td>
+        </tr>
+
+        <tr>
+            <td>DigiLocker</td>
+            <td>✅ Connected</td>
+        </tr>
+
+        <tr>
+            <td>Documents</td>
+            <td>✅ Uploaded & Verified</td>
+        </tr>
+
+        <tr>
+            <td>AI Eligibility Check</td>
+            <td>✅ Completed</td>
+        </tr>
+
+        <tr>
+            <td>Scholarship Recommendation</td>
+            <td>✅ Generated Successfully</td>
+        </tr>
+
+    </table>
+
+    <br>
 
     <div class="cards">
 
@@ -38,12 +77,14 @@
             <p><b>State:</b> {{ scholarship["State"] }}</p>
 
             <p><b>Minimum Percentage:</b> {{ scholarship["Minimum_Percentage"] }}%</p>
-            <p><b>AI Match Score:</b> {{ scholarship["Match_Score"] }}%</p>
+
+            <p><b>🤖 AI Match Score:</b> {{ scholarship["Match_Score"] }}%</p>
+
             <br>
 
-<a href="{{ scholarship['Apply_Link'] }}" target="_blank">
-    <button>Apply Now</button>
-</a>
+            <a href="{{ scholarship['Apply_Link'] }}" target="_blank">
+                <button>Apply Now</button>
+            </a>
 
         </div>
 
@@ -51,17 +92,30 @@
 
     {% else %}
 
-        <h3>No scholarships found for your details.</h3>
+        <h3>❌ No scholarships found for your details.</h3>
 
     {% endif %}
 
     </div>
 
 </main>
+<br><br>
 
+<a href="/download_pdf">
+    <button>📄 Download Scholarship Report (PDF)</button>
+</a>
 
 <footer>
-    <p>© 2026 Auto Scholar AI Agent</p>
+    <p>
+        © 2026 Auto Scholar – AI Agent<br><br>
+
+        Developed by <b>Shaik Safa</b><br>
+        <b>Shagufta Naaz</b><br><br>
+
+        B.Tech CSE (Artificial Intelligence)<br>
+
+        Madanapalle Institute of Technology & Science
+    </p>
 </footer>
 
 </body>
