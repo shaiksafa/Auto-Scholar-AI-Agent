@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, send_file
-from scholarship_engine import recommend_scholarships
+from backend.scholarship_engine import recommend_scholarships
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 import csv
